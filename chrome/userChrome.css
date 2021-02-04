@@ -37,20 +37,38 @@ background: none !important;
 border-radius: 2px !important;
 }
 
-/* Bookmark dropdown colors */
-#PlacesToolbarItems .bookmark-item menupopup {
-  -moz-appearance: none !important;
-  background-color: var(--toolbar-bgcolor) !important;
-  color: #FFFFFF !important;
-  border-color: #444444 !important;
+/* Bookmark Toolbar/Context Menu Colors */
+menupopup, popup,
+popup > menu > menupopup,
+menupopup > menu > menupopup {
+    -moz-appearance: none !important;
+    background: var(--toolbar-bgcolor) !important;
+    border-color: #444444 !important;}
+ 
+menupopup menuseparator {
+    -moz-appearance: none !important;
+    background: var(--toolbar-bgcolor) !important;
+    margin: 2px 0px 2px 0px !important;
+    padding: 0 !important;
+    border-top: none !important;
+    border-color: #444444 !important;}
+ 
+menupopup menu, menuitem{
+    -moz-appearance: none !important;
+    color: #FFFFFF !important;}
+ 
+menupopup menu:hover, menuitem:hover {
+    -moz-appearance: none !important;
+    color: var(--toolbar-bgcolor) !important;
+    background-color: #FFFFFF !important;}
+ 
+/*Invert submenu arrow > color*/
+.menu-right{
+    filter: invert(95%)!important;
 }
 
-/* Change hover color */
-#personal-bookmarks menuitem:hover {
-  -moz-appearance: none !important;
-  color: var(--toolbar-bgcolor) !important;
-  background-color: #FFFFFF !important;
-}
+#context-navigation{background:transparent !important;}
+#context-navigation menuitem{ height: initial }
 
 /* Remove "Show all" and separator from bookmark dropdown */
 #PlacesToolbarItems .bookmarks-actions-menuseparator,
@@ -100,10 +118,4 @@ border-radius: 2px !important;
 
   #urlbar[breakout][breakout-extend] > #urlbar-background {
     animation: none !important;;
-  }
-
-  /* Remove shadows */
-
-  #urlbar[breakout][breakout-extend] > #urlbar-background {
-    box-shadow: none !important;
   }
